@@ -1,20 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>gov.usgs.cida.watersmart</groupId>
-        <artifactId>watersmart</artifactId>
-        <version>007-SNAPSHOT</version>
-    </parent>
-    <groupId>gov.usgs.cida.watersmart</groupId>
-    <artifactId>watersmart-wps</artifactId>
-    <name>WaterSMART WPS</name>
+    <groupId>gov.usgs.cida</groupId>
+    <artifactId>wps-n52</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    
+    <name>CIDA WPS</name>
     <packaging>war</packaging>
     
+    <url>http://cida-usgs.github.com/WaterSMART</url>
+    <inceptionYear>2012</inceptionYear>
+    <organization>
+        <name>Center for Integrated Data Analytics</name>
+        <url>http://cida.usgs.gov</url>
+    </organization>    
+    
     <properties>
-        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+        <cida.maven.url>http://cida-wiwsc-maven.er.usgs.gov:8080/maven</cida.maven.url>
         <gdp.version>19.2-SNAPSHOT</gdp.version>
     </properties>
+    
+    <licenses>
+        <license>
+            <name>Public Domain</name>
+            <url>http://www.usgs.gov/visual-id/credit_usgs.html#copyright</url>
+            <comments>
+                This software is in the public domain because it contains materials
+                that originally came from the United States Geological Survey,
+                an agency of the United States Department of Interior.
+                For more information, see the official USGS copyright policy
+                at http://www.usgs.gov/visual-id/credit_usgs.html#copyright
+            </comments>
+        </license>
+    </licenses>
+	
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>CIDA Nexus</name>
+            <url>${cida.maven.url}/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>cida-snapshots</id>
+            <name>CIDA Nexus Snapshots</name>
+            <url>${cida.maven.url}/content/groups/public-snapshots/</url>
+        </repository>
+        <repository>
+            <id>cida-thirdparty</id>
+            <name>CIDA 3rd Party</name>
+            <url>${cida.maven.url}/content/repositories/cida-thirdparty/</url>
+        </repository>
+        <repository>
+            <id>n52-releases</id>
+            <name>52-north Releases</name>
+            <url>http://52north.org/maven/repo/releases/</url>
+        </repository>
+    </repositories>
+
+    <scm>
+        <connection>scm:git:http://github.com/USGS-CIDA/wps-n52.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/USGS-CIDA/wps-n52.git</developerConnection>
+        <url>https://github.com/USGS-CIDA/wps-n52</url>
+    </scm>
     
     <dependencies>
         <dependency>
@@ -38,56 +85,74 @@
         <dependency>
             <groupId>gov.usgs.cida.jmx</groupId>
             <artifactId>jmx-log4j</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>gov.usgs.cida</groupId>
+            <artifactId>dynamicProperties</artifactId>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.fastinfoset</groupId>
             <artifactId>FastInfoset</artifactId>
+            <version>1.2.12</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
         </dependency>
         <dependency>
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
+            <version>2.10.0</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-commons</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-io</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-server</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-transactional</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-r</artifactId>
+            <version>3.0</version>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
+            <version>2.1</version>
         </dependency>
         <!-- LOGGING START-->
         <!-- needed for patch 52n code -->
         <dependency>
             <artifactId>log4j</artifactId>
             <groupId>log4j</groupId>
+            <version>1.2.17</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
