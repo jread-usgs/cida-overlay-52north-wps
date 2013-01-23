@@ -14,7 +14,7 @@ import org.n52.wps.commons.WPSConfig;
  */
 public class ForceConfigInitializeListener implements ServletContextListener {
     
-    private static final String WPS_CONFIG_LOCATION = "watersmart.wps.config.location";
+    private static final String WPS_CONFIG_LOCATION = "gov.usgs.cida.n52.wps.config.location";
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
