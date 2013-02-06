@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.usgs.cida</groupId>
     <artifactId>wps-n52</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     
     <name>CIDA WPS</name>
     <packaging>war</packaging>
@@ -17,7 +17,7 @@
     
     <properties>
         <cida.maven.url>http://cida-wiwsc-maven.er.usgs.gov:8080/maven</cida.maven.url>
-        <gdp.version>20</gdp.version>
+        <gdp.version>19.1</gdp.version>
     </properties>
     
     <licenses>
