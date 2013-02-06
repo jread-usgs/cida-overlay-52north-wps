@@ -17,7 +17,7 @@
     
     <properties>
         <cida.maven.url>http://cida-wiwsc-maven.er.usgs.gov:8080/maven</cida.maven.url>
-        <gdp.version>19.1</gdp.version>
+        <gdp.version>20</gdp.version>
     </properties>
     
     <licenses>
