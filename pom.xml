@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>gov.usgs.cida</groupId>
     <artifactId>wps-n52</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>3.1.1-1-SNAPSHOT</version>
     
-    <name>CIDA WPS</name>
+    <name>CIDA 52north WPS overlay</name>
     <packaging>war</packaging>
     
-    <url>http://cida-usgs.github.com/WaterSMART</url>
+    <url>http://cida.usgs.gov</url>
     <inceptionYear>2012</inceptionYear>
     <organization>
         <name>Center for Integrated Data Analytics</name>
@@ -16,40 +16,29 @@
     </organization>    
     
     <properties>
-        <cida.maven.url>http://cida-wiwsc-maven.er.usgs.gov:8080/maven</cida.maven.url>
         <gdp.version>20</gdp.version>
+        <n52.wps.version>3.1.1</n52.wps.version>
     </properties>
     
     <licenses>
         <license>
+            <name>GPL2</name>
+            <url>http://www.gnu.org/licenses/</url>
+            <comments>Code copied from 52&deg;North under the GPL2 license</comments>
+        </license>
+        <license>
             <name>Public Domain</name>
             <url>http://www.usgs.gov/visual-id/credit_usgs.html#copyright</url>
-            <comments>
-                This software is in the public domain because it contains materials
-                that originally came from the United States Geological Survey,
-                an agency of the United States Department of Interior.
-                For more information, see the official USGS copyright policy
-                at http://www.usgs.gov/visual-id/credit_usgs.html#copyright
-            </comments>
+            <comments>All work contributed by CIDA is in the public domain, all else is the work of 52&deg;North</comments>
         </license>
     </licenses>
 	
     <repositories>
         <repository>
-            <id>nexus</id>
-            <name>CIDA Nexus</name>
-            <url>${cida.maven.url}/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>cida-snapshots</id>
-            <name>CIDA Nexus Snapshots</name>
-            <url>${cida.maven.url}/content/groups/public-snapshots/</url>
-        </repository>
-        <repository>
-            <id>cida-thirdparty</id>
-            <name>CIDA 3rd Party</name>
-            <url>${cida.maven.url}/content/repositories/cida-thirdparty/</url>
-        </repository>
+			<id>cida-public</id>
+			<name>CIDA Public Nexus</name>
+			<url>http://cida.usgs.gov/maven/cida-public/</url>
+		</repository>
         <repository>
             <id>n52-releases</id>
             <name>52-north Releases</name>
@@ -57,31 +46,31 @@
         </repository>
     </repositories>
 
-    <distributionManagement>
-        <repository>
+	<distributionManagement>
+		<repository>
             <id>cida-releases</id>
             <name>CIDA Releases</name>
             <url>${cida.maven.url}/content/repositories/cida-releases</url>
-        </repository>
-        <snapshotRepository>
+		</repository>
+		<snapshotRepository>
             <id>cida-snapshots</id>
             <name>CIDA Snapshots</name>
             <url>${cida.maven.url}/content/repositories/cida-snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
+		</snapshotRepository>
+	</distributionManagement>
 
     <scm>
-        <connection>scm:git:http://github.com/USGS-CIDA/wps-n52.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/USGS-CIDA/wps-n52.git</developerConnection>
-        <url>https://github.com/USGS-CIDA/wps-n52</url>
+        <connection>scm:git:http://github.com/USGS-CIDA/cida-overlay-52north-wps.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/USGS-CIDA/cida-overlay-52north-wps.git</developerConnection>
+        <url>https://github.com/USGS-CIDA/cida-overlay-52north-wps</url>
     </scm>
     
     <dependencies>
-        <dependency>
+<!--        <dependency>
             <groupId>gov.usgs.cida.gdp</groupId>
             <artifactId>gdp-52n-wps-patches</artifactId>
             <version>${gdp.version}</version>
-            <!-- we will unpack jar contents to WEB-INF/classes -->
+             we will unpack jar contents to WEB-INF/classes 
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -94,16 +83,18 @@
             <artifactId>gdp-52n-wps-tests</artifactId>
             <version>${gdp.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
+        
+    <!-- Commenting out jmx log mbean for now, may want to bring it back later
         <dependency>
             <groupId>gov.usgs.cida.jmx</groupId>
             <artifactId>jmx-log4j</artifactId>
             <version>1.0</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>gov.usgs.cida</groupId>
             <artifactId>dynamicProperties</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -133,27 +124,27 @@
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-commons</artifactId>
-            <version>3.0</version>
+            <version>${n52.wps.version}</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-io</artifactId>
-            <version>3.0</version>
+            <version>${n52.wps.version}</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-server</artifactId>
-            <version>3.0</version>
+            <version>${n52.wps.version}</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-transactional</artifactId>
-            <version>3.0</version>
+            <version>${n52.wps.version}</version>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-r</artifactId>
-            <version>3.0</version>
+            <version>${n52.wps.version}</version>
         </dependency>
         <dependency>
             <groupId>joda-time</groupId>
@@ -171,42 +162,5 @@
     </dependencies>
     <build>
         <finalName>wps</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>patch-via-WEB-INF-classes</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>gov.usgs.cida.gdp</groupId>
-                                    <artifactId>gdp-52n-wps-patches</artifactId>
-                                    <version>${gdp.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>   
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <overlays>
-
-                    </overlay>
-                </overlays>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-        </plugin>-->
-        </plugins>
     </build>
 </project>
