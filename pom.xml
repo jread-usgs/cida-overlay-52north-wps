@@ -18,6 +18,7 @@
     <properties>
         <gdp.version>20</gdp.version>
         <n52.wps.version>3.1.1</n52.wps.version>
+        <gt.version>9.2</gt.version>
     </properties>
     
     <licenses>
@@ -35,29 +36,38 @@
 	
     <repositories>
         <repository>
-			<id>cida-public</id>
-			<name>CIDA Public Nexus</name>
-			<url>http://cida.usgs.gov/maven/cida-public/</url>
-		</repository>
+            <id>cida-public</id>
+            <name>CIDA Public Nexus</name>
+            <url>http://cida.usgs.gov/maven/cida-public/</url>
+        </repository>
         <repository>
             <id>n52-releases</id>
             <name>52-north Releases</name>
             <url>http://52north.org/maven/repo/releases/</url>
         </repository>
+        <repository>
+            <id>opengeo</id>
+            <url>http://repo.opengeo.org/</url>
+        </repository>
+        <repository>
+            <id>geosolutions</id>
+            <name>GeoSolutions</name>
+            <url>http://maven.geo-solutions.it/</url>
+        </repository>
     </repositories>
 
-	<distributionManagement>
-		<repository>
+    <distributionManagement>
+        <repository>
             <id>cida-releases</id>
             <name>CIDA Releases</name>
             <url>${cida.maven.url}/content/repositories/cida-releases</url>
-		</repository>
-		<snapshotRepository>
+        </repository>
+        <snapshotRepository>
             <id>cida-snapshots</id>
             <name>CIDA Snapshots</name>
             <url>${cida.maven.url}/content/repositories/cida-snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+        </snapshotRepository>
+    </distributionManagement>
 
     <scm>
         <connection>scm:git:http://github.com/USGS-CIDA/cida-overlay-52north-wps.git</connection>
@@ -65,8 +75,20 @@
         <url>https://github.com/USGS-CIDA/cida-overlay-52north-wps</url>
     </scm>
     
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>geotools</artifactId>
+                <version>${gt.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
     <dependencies>
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>gov.usgs.cida.gdp</groupId>
             <artifactId>gdp-52n-wps-patches</artifactId>
             <version>${gdp.version}</version>
@@ -85,7 +107,7 @@
             <scope>test</scope>
         </dependency>-->
         
-    <!-- Commenting out jmx log mbean for now, may want to bring it back later
+        <!-- Commenting out jmx log mbean for now, may want to bring it back later
         <dependency>
             <groupId>gov.usgs.cida.jmx</groupId>
             <artifactId>jmx-log4j</artifactId>
@@ -99,7 +121,6 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.fastinfoset</groupId>
@@ -135,6 +156,56 @@
             <groupId>org.n52.wps</groupId>
             <artifactId>52n-wps-server</artifactId>
             <version>${n52.wps.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>gt-api</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-opengis</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-main</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-shapefile</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-xml</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-coverage</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-referencing</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-xsd-kml</artifactId>
+                    <groupId>org.geotools.xsd</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-xsd-gml3</artifactId>
+                    <groupId>org.geotools.xsd</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-xsd-core</artifactId>
+                    <groupId>org.geotools.xsd</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-geotiff</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gt-arcgrid</artifactId>
+                    <groupId>org.geotools</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.n52.wps</groupId>
@@ -158,6 +229,66 @@
             <groupId>log4j</groupId>
             <version>1.2.17</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <artifactId>gt-main</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-opengis</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-api</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-shapefile</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-xml</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-coverage</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-referencing</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-xsd-kml</artifactId>
+            <groupId>org.geotools.xsd</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-xsd-gml3</artifactId>
+            <groupId>org.geotools.xsd</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-xsd-core</artifactId>
+            <groupId>org.geotools.xsd</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-geotiff</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
+        </dependency>
+        <dependency>
+            <artifactId>gt-arcgrid</artifactId>
+            <groupId>org.geotools</groupId>
+            <version>${gt.version}</version>
         </dependency>
     </dependencies>
     <build>
