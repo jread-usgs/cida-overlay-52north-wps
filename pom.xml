@@ -158,51 +158,7 @@
             <version>${n52.wps.version}</version>
             <exclusions>
                 <exclusion>
-                    <artifactId>gt-api</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-opengis</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-main</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-shapefile</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-xml</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-coverage</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-referencing</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-xsd-kml</artifactId>
-                    <groupId>org.geotools.xsd</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-xsd-gml3</artifactId>
-                    <groupId>org.geotools.xsd</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-xsd-core</artifactId>
-                    <groupId>org.geotools.xsd</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-geotiff</artifactId>
-                    <groupId>org.geotools</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>gt-arcgrid</artifactId>
+                    <artifactId>*</artifactId>
                     <groupId>org.geotools</groupId>
                 </exclusion>
             </exclusions>
