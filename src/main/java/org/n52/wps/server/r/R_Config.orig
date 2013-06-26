@@ -165,6 +165,10 @@ public class R_Config {
             else
                 throw e;
         }
+        finally {
+            if (con != null && con.needLogin())
+                con.login(RSERVE_USER, RSERVE_PASSWORD);
+        }
         return con;
     }
 
@@ -173,9 +177,6 @@ public class R_Config {
         
         RConnection con;
         con = new RConnection(RSERVE_HOST, RSERVE_PORT);
-        if (con.needLogin()) {
-            con.login(RSERVE_USER, RSERVE_PASSWORD);
-        }
         RUtil.log(con, "New connection from WPS4R");
 
         REXP info = con.eval("capture.output(sessionInfo())");

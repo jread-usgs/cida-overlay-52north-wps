@@ -50,9 +50,9 @@
             <url>http://repo.opengeo.org/</url>
         </repository>
         <repository>
-            <id>geosolutions</id>
-            <name>GeoSolutions</name>
-            <url>http://maven.geo-solutions.it/</url>
+            <id>osgeo</id>
+            <name>OSGeo Geotools</name>
+            <url>http://download.osgeo.org/webdav/geotools</url>
         </repository>
     </repositories>
 
@@ -60,12 +60,12 @@
         <repository>
             <id>cida-releases</id>
             <name>CIDA Releases</name>
-            <url>${cida.maven.url}/content/repositories/cida-releases</url>
+            <url>http://internal.cida.usgs.gov/maven/content/repositories/cida-public-releases</url>
         </repository>
         <snapshotRepository>
             <id>cida-snapshots</id>
             <name>CIDA Snapshots</name>
-            <url>${cida.maven.url}/content/repositories/cida-snapshots</url>
+            <url>http://internal.cida.usgs.gov/maven/content/repositories/cida-public-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -88,25 +88,6 @@
     </dependencyManagement>
     
     <dependencies>
-        <!--        <dependency>
-            <groupId>gov.usgs.cida.gdp</groupId>
-            <artifactId>gdp-52n-wps-patches</artifactId>
-            <version>${gdp.version}</version>
-             we will unpack jar contents to WEB-INF/classes 
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>gov.usgs.cida.gdp</groupId>
-            <artifactId>gdp-52n-wps-extensions</artifactId>
-            <version>${gdp.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>gov.usgs.cida.gdp</groupId>
-            <artifactId>gdp-52n-wps-tests</artifactId>
-            <version>${gdp.version}</version>
-            <scope>test</scope>
-        </dependency>-->
-        
         <!-- Commenting out jmx log mbean for now, may want to bring it back later
         <dependency>
             <groupId>gov.usgs.cida.jmx</groupId>
