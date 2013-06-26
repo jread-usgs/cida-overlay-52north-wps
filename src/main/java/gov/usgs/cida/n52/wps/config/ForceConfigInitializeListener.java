@@ -20,7 +20,6 @@ public class ForceConfigInitializeListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         String defaultLocation = WPSConfig.getConfigPath();
         String configLocation = JNDISingleton.getInstance().getProperty(WPS_CONFIG_LOCATION, defaultLocation);
-        System.out.println(configLocation);
         try {
             WPSConfig.forceInitialization(configLocation);
         }

@@ -80,9 +80,15 @@
     </AlgorithmRepositoryList>
     <!-- @hostname@, @hostport@ and @webappPath@ are filtered and replaced by values derived from
          HttpServelRequest instance of getRequestURL() in response using a Filter -->
-    <Server hostname="@hostname@" hostport="@hostport@" webappPath="@webappPath@" includeDataInputsInResponse="true" computationTimeoutMilliSeconds="5" cacheCapabilites="false">
-        <Database>
-            <Property name="databaseClass" active="true">gov.usgs.cida.n52.wps.database.ResultsDatabase</Property>
-        </Database>
+    <Server hostname="@hostname@" hostport="@hostport@" webappPath="@webappPath@" includeDataInputsInResponse="true" computationTimeoutMilliSeconds="5" cacheCapabilites="false" repoReloadInterval="0">
+	<Database>
+        <!-- NOTE: database wipe is only implemented for the FlatFileDatabase (the default) -->
+        <!-- enable database wiping base on values below -->
+        <Property name="wipe.enabled" active="true">true</Property>
+        <!-- scans database every 1 hour -->
+        <Property name="wipe.period" active="true">PT1H</Property>
+        <!-- deletes files older than 7 days -->
+        <Property name="wipe.threshold" active="true">P7D</Property>
+    </Database>
     </Server>
 </WPSConfiguration>
