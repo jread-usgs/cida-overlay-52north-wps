@@ -25,12 +25,12 @@
         <license>
             <name>GPL2</name>
             <url>http://www.gnu.org/licenses/</url>
-            <comments>Code copied from 52&deg;North under the GPL2 license</comments>
+            <comments>Code copied from 52North under the GPL2 license</comments>
         </license>
         <license>
             <name>Public Domain</name>
             <url>http://www.usgs.gov/visual-id/credit_usgs.html#copyright</url>
-            <comments>All work contributed by CIDA is in the public domain, all else is the work of 52&deg;North</comments>
+            <comments>All work contributed by CIDA is in the public domain, all else is the work of 52North</comments>
         </license>
     </licenses>
 	
