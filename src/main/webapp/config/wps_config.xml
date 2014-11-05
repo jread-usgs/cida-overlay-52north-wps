@@ -74,13 +74,15 @@
     </Datahandlers>
     <AlgorithmRepositoryList>
         <Repository name="LocalRAlgorithmRepository" className="org.n52.wps.server.r.LocalRAlgorithmRepository" active="true">
-            <Property name="Rserve_Host" active="true">localhost</Property>
-            <Property name="Rserve_Port" active="true">6311</Property>
-            <Property active="true" name="Script_Dir">R/r_scripts</Property>
-            <Property active="true" name="Resource_Dir">R/resources</Property>
-            <Property name="R_Work_Dir" active="true">default</Property>
-            <Property name="Enable_Batch_Start" active="true">false</Property>
-            <Property name="R_Datatype_Config" active="true">R/R_Datatype.conf</Property>
+            <Property name="R_enableBatchStart" active="true">true</Property>
+            <Property name="R_datatypeConfig" active="true">R/R_Datatype.conf</Property>
+            <Property name="R_wdName" active="true">default</Property>
+            <Property name="R_resourceDirectory" active="true">R/resources</Property>
+            <Property name="R_scriptDirectory" active="true">R/scripts</Property>
+            <Property name="R_RserveHost" active="true">localhost</Property>
+            <Property name="R_RservePort" active="true">6311</Property>
+            <Property name="R_RserveUser" active="true">user</Property>
+            <Property name="R_RservePassword" active="true">not_actually_password</Property>
         </Repository>
     </AlgorithmRepositoryList>
     <!-- @hostname@, @hostport@ and @webappPath@ are filtered and replaced by values derived from
